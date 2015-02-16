@@ -37,7 +37,7 @@ ActivityBase {
 
     pageComponent: Image {
         id: background
-        source: Activity.url + (modeRGB ? "background.svgz" : "background2.svgz")
+        source: Activity.url + (modeRGB ? "background.svg" : "background2.svg")
         sourceSize.width: parent.width
         anchors.fill: parent
         fillMode: Image.PreserveAspectCrop
@@ -174,7 +174,7 @@ ActivityBase {
 
         BarButton {
             id: validate
-            source: "qrc:/gcompris/src/core/resource/bar_ok.svgz"
+            source: "qrc:/gcompris/src/core/resource/bar_ok.svg"
             sourceSize.width: 66 * bar.barZoom
             visible: true
             anchors {

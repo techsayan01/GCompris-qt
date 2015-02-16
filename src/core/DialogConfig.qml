@@ -137,8 +137,8 @@ Rectangle {
                             Image {
                                     sourceSize.height: 50 * ApplicationInfo.ratio
                                     source:
-                                        demoModeBox.checked ? "qrc:/gcompris/src/core/resource/apply.svgz" :
-                                                              "qrc:/gcompris/src/core/resource/cancel.svgz"
+                                        demoModeBox.checked ? "qrc:/gcompris/src/core/resource/apply.svg" :
+                                                              "qrc:/gcompris/src/core/resource/cancel.svg"
                                     MouseArea {
                                         anchors.fill: parent
                                         onClicked: {
@@ -349,8 +349,8 @@ Rectangle {
                                 id: voicesImage
                                 anchors.verticalCenter: parent.verticalCenter
                                 sourceSize.height: 30 * ApplicationInfo.ratio
-                                source: voicesRow.haveLocalResource ? "qrc:/gcompris/src/core/resource/apply.svgz" :
-                                    "qrc:/gcompris/src/core/resource/cancel.svgz"
+                                source: voicesRow.haveLocalResource ? "qrc:/gcompris/src/core/resource/apply.svg" :
+                                    "qrc:/gcompris/src/core/resource/cancel.svg"
                             }
 
                             Button {
@@ -391,7 +391,7 @@ Rectangle {
                             }
 
                             Image {
-                                source: "qrc:/gcompris/src/core/resource/bar_next.svgz"
+                                source: "qrc:/gcompris/src/core/resource/bar_next.svg"
                                 anchors.verticalCenter: parent.verticalCenter
                                 sourceSize.height: Math.min(50 * ApplicationInfo.ratio, parent.width / 15)
 
@@ -445,7 +445,7 @@ Rectangle {
 
                                 Image {
                                     source: "qrc:/gcompris/src/core/resource/difficulty" +
-                                            (modelData + 1) + ".svgz";
+                                            (modelData + 1) + ".svg";
                                     anchors.verticalCenter: parent.verticalCenter
                                     sourceSize.width: Math.min(50 * ApplicationInfo.ratio, parent.width / 15)
                                     opacity: modelData + 1 >= filterRepeater.min &&
@@ -480,7 +480,7 @@ Rectangle {
                             }
 
                             Image {
-                                source: "qrc:/gcompris/src/core/resource/bar_previous.svgz"
+                                source: "qrc:/gcompris/src/core/resource/bar_previous.svg"
                                 sourceSize.height: Math.min(50 * ApplicationInfo.ratio, parent.width / 15)
                                 anchors.verticalCenter: parent.verticalCenter
 
