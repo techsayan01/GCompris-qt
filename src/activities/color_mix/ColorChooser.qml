@@ -29,7 +29,7 @@ import "."
 
 Image {
     id: chooser
-    source: Activity.url + (activity.modeRGB ? "flashlight.svgz" : "tube.svgz")
+    source: Activity.url + (activity.modeRGB ? "flashlight.svg" : "tube.svg")
     z: 1
 
     property int maxSteps: 10
@@ -38,7 +38,7 @@ Image {
 
     Image {
         id: intensity
-        source: Activity.url + "flashlight2.svgz"
+        source: Activity.url + "flashlight2.svg"
         sourceSize.height: parent.sourceSize.height
         z: 2
         visible: activity.modeRGB ? true : false
@@ -52,7 +52,7 @@ Image {
         }
 
         Image {
-            source: Activity.url + "light.svgz"
+            source: Activity.url + "light.svg"
             sourceSize.height: parent.sourceSize.height / 2
             anchors {
                 left: parent.right
@@ -73,7 +73,7 @@ Image {
 
     Image {
         id: intensityBrush
-        source: Activity.url + "brush.svgz"
+        source: Activity.url + "brush.svg"
         sourceSize.height: parent.sourceSize.height * 0.25 + currentStep / maxSteps * 15
         z: 2
         anchors {
