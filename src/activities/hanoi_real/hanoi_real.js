@@ -72,6 +72,8 @@ function placeDisc(disc, towerImage)
 
 function placeDiscsAtOrigin() {
     // Reset the model to get the initial animation
+    if(items.discRepeater.model === items.numberOfDisc)
+        items.discRepeater.model = 0
     items.discRepeater.model = items.numberOfDisc
 
     for( var i = 0 ; i < items.numberOfDisc ; ++i ) {
@@ -148,9 +150,12 @@ function disableNonDraggablediscs()
 
 function deHighlightTowers()
  {
-    items.tower1Image.highlight = false
-    items.tower2Image.highlight = false
-    items.tower3Image.highlight = false
+    if(items.tower1Image)
+        items.tower1Image.highlight = false
+    if(items.tower2Image)
+        items.tower2Image.highlight = false
+    if(items.tower3Image)
+        items.tower3Image.highlight = false
 }
 
 function checkIfDiscOnTowerImage(disc, towerImage)
