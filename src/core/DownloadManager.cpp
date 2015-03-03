@@ -115,7 +115,7 @@ void DownloadManager::abortDownloads()
 /** Helper generating a relative voices resources file-path for a given locale*/
 QString DownloadManager::getVoicesResourceForLocale(const QString& locale) const
 {
-    return QString("data/voices/voices-%1.rcc").arg(locale);
+    return QString("data/voices-" COMPRESSED_AUDIO "/voices-%1.rcc").arg(locale);
 }
 
 /** Transform the passed relative path to an absolute resource path of an

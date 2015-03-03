@@ -164,5 +164,7 @@ endif()
 option(WITH_ACTIVATION_CODE "Include the activation system" OFF)
 option(WITH_KIOSK_MODE "Set the kiosk mode by default" OFF)
 
+set(COMPRESSED_AUDIO "ogg" CACHE STRING "Compressed Audio format [ogg|aac]")
+
 add_subdirectory(src)
 
