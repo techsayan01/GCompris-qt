@@ -78,9 +78,10 @@ Image {
         z: 2
         anchors {
             left: parent.right
+            leftMargin: activity.modeRGB ? -20 * ApplicationInfo.ratio : 0
             verticalCenter: parent.verticalCenter
         }
-        visible: activity.modeRGB ? false : currentStep > 0
+        visible: currentStep > 0
         fillMode: Image.PreserveAspectFit
 
         Colorize {
@@ -90,14 +91,6 @@ Image {
             lightness: 0
             saturation: 1
         }
-    }
-
-    Colorize {
-        id: color
-        anchors.fill: parent
-        source: parent
-        hue: 0.0
-        saturation: 1
     }
 
     ColorButton {

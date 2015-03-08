@@ -30,7 +30,7 @@ ActivityBase {
 
     onHome: {
         if(pageView.depth === 1) {
-            Core.quit(menuActivity);
+            Core.quit(main);
         }
         else {
             pageView.pop();
@@ -164,7 +164,7 @@ ActivityBase {
                         anchors.horizontalCenter: parent.horizontalCenter
                     }
 
-                    ParticleSystemStar {
+                    ParticleSystemStarLoader {
                         id: particles
                         anchors.fill: backgroundSection
                         clip: false
@@ -177,9 +177,9 @@ ActivityBase {
                     }
 
                     function selectCurrentItem() {
-                        particles.emitter.burst(10)
+                        particles.burst(10)
                         ActivityInfoTree.filterByTag(modelData.tag)
-                        ActivityInfoTree.filterNonFreeActivities()
+                        ActivityInfoTree.filterLockedActivities()
                         menuActivity.currentTag = modelData.tag
                         section.currentIndex = index
                     }
@@ -337,7 +337,7 @@ ActivityBase {
                         text: ActivityInfoTree.menuTree[index].description
                     }
                 }
-                ParticleSystemStar {
+                ParticleSystemStarLoader {
                     id: particles
                     anchors.fill: activityBackground
                 }
@@ -361,7 +361,7 @@ ActivityBase {
                 }
 
                 function selectCurrentItem() {
-                    particles.emitter.burst(50)
+                    particles.burst(50)
                     ActivityInfoTree.currentActivity = ActivityInfoTree.menuTree[index]
                     activityLoader.setSource("qrc:/gcompris/src/activities/" + ActivityInfoTree.menuTree[index].name,
                                              {
@@ -395,7 +395,9 @@ ActivityBase {
             }
 
             onConfigClicked: {
-                displayDialog(dialogConfig)
+                dialogActivityConfig.active = true
+                dialogActivityConfig.loader.item.loadFromConfig()
+                displayDialog(dialogActivityConfig)
             }
         }
     }
@@ -410,11 +412,21 @@ ActivityBase {
         activityInfo: ActivityInfoTree.rootMenu
     }
 
-    DialogConfig {
-        id: dialogConfig
+    DialogActivityConfig {
+        id: dialogActivityConfig
+        content: Component {
+            ConfigurationItem {
+                id: configItem
+                width: dialogActivityConfig.width - 50 * ApplicationInfo.ratio
+            }
+        }
+
+        onSaveData: {
+            dialogActivityConfig.configItem.save();
+        }
         onClose: {
             ActivityInfoTree.filterByTag(menuActivity.currentTag)
-            ActivityInfoTree.filterNonFreeActivities()
+            ActivityInfoTree.filterLockedActivities()
             home()
         }
     }

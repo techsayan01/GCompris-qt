@@ -112,7 +112,9 @@ void DownloadManager::abortDownloads()
     }
 }
 
-/** Helper generating a relative voices resources file-path for a given locale*/
+/** Helper generating a relative voices resources file-path for a given locale
+ *
+ * @param locale  Locale name string of the form <language>_<country>. */
 QString DownloadManager::getVoicesResourceForLocale(const QString& locale) const
 {
     return QString("data/voices-" COMPRESSED_AUDIO "/voices-%1.rcc").arg(locale);
@@ -513,7 +515,7 @@ bool DownloadManager::registerResource(const QString& filename)
         emit resourceRegistered(relPath);
 
         QString v = getVoicesResourceForLocale(
-                ApplicationInfo::getInstance()->localeShort());
+                ApplicationSettings::getInstance()->locale());
         if (v == relPath)
             emit voicesRegistered();
         return false;
@@ -531,7 +533,7 @@ bool DownloadManager::isResourceRegistered(const QString& resource) const
 bool DownloadManager::areVoicesRegistered() const
 {
     QString relFilename = getVoicesResourceForLocale(
-            ApplicationInfo::getInstance()->localeShort());
+            ApplicationSettings::getInstance()->locale());
     return isResourceRegistered(relFilename);
 }
 
